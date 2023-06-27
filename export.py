@@ -57,6 +57,7 @@ def main():
     # 构建输入的字典和计算输出结果
     ort_inputs = {ort_session.get_inputs()[0].name: to_numpy(dummy_input)}
     ort_outs = ort_session.run(None, ort_inputs)
+    print(f"torch_out shape: {torch_out.shape} ort_outs shape: {np.array(ort_outs).shape}")
     # 比较使用PyTorch和ONNX Runtime得出的精度
     np.testing.assert_allclose(to_numpy(torch_out), ort_outs[0], rtol=1e-03, atol=1e-05)
     print("Exported model has been tested with ONNXRuntime, and the result looks good!")
