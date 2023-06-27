@@ -1,0 +1,7 @@
+__pycache__
+*.gz
+*.zip
+*.csv
+*ubyte
+*.pkl
+*.onnx
