@@ -20,7 +20,7 @@ def onnx_infer():
         if cnt > 10:
             break
         ort_session = onnxruntime.InferenceSession(model_path)
-        # 构建输入的字典和计算输出结果
+
         # print(f"name: {ort_session.get_inputs()[0].name} data shape: {data.shape}")
         ort_inputs = {ort_session.get_inputs()[0].name: data.numpy()}
         output = ort_session.run(None, ort_inputs)
